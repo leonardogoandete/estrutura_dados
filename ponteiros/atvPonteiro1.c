@@ -3,9 +3,6 @@ int main (){
   int x, *px;
   x = 1;
   px = &x;
-// * Guarda o valor do ponteiro
-// & Guarda o endereco da memoria
-
   printf ("01. x= %d\n", x); // imprime o valor atribuido a variavel X
 
   printf ("02. px= %u\n", px); // exibe o endereco da memoria em decimal da variavel X
@@ -24,11 +21,11 @@ int main (){
 
   printf ("09. px= %u\n", px); // exibe o endereco da memoria da variavel X.
 
-  printf ("10. *(px++)= %d\n", *(px++));
+  printf ("10. *(px++)= %d\n", *(px++)); // incrementa o endereco de memoria.
 
-  printf ("11. px= %u\n", px);
+  printf ("11. px= %u\n", px); // exibe o endereco da memoria da variavel X.
 
   printf ("12. *px++= %d\n", *px++);
 
-  printf ("13. px= %u\n", px);
+  printf ("13. px= %u\n", px); // exibe o endereco da memoria da variavel X.
 }
