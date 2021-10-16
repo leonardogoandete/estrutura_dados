@@ -25,7 +25,7 @@ int main (){
 
   printf ("11. px= %u\n", px); // exibe o endereco da memoria da variavel X.
 
-  printf ("12. *px++= %d\n", *px++);
+  printf ("12. *px++= %d\n", *px++); // acrecenta 1 byte no enderenco da memoria
 
   printf ("13. px= %u\n", px); // exibe o endereco da memoria da variavel X.
 }
