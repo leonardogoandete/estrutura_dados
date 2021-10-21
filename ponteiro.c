@@ -4,7 +4,7 @@ int main(void)
 {
   //valor é a variável que
   //será apontada pelo ponteiro
-  int valor = 26;
+  int valor = 28;
 
   //declaração de variável ponteiro
   int *ptr;
