@@ -45,7 +45,27 @@ float media(int i){
   mediana = (vetor[i].nota1 + vetor[i].nota2 + vetor[i].nota3 + vetor[i].nota4)/4;
   return mediana;
 }
+/*
+bool situacao(int i){
+  float mediana = 0;
+  mediana = (vetor[i].nota1 + vetor[i].nota2 + vetor[i].nota3 + vetor[i].nota4)/4;
+  if (mediana >= 7) {
+    return true;
+  } else{
+    return false;
+  }
+}
+*/
 
+float situacao(int i){
+  float mediana;
+  mediana = (vetor[i].nota1 + vetor[i].nota2 + vetor[i].nota3 + vetor[i].nota4)/4;
+	if(mediana >= 7){
+		printf("Situacao: Aprovado\n");
+	}else{
+		printf("Situacao: Reprovado\n");
+	}
+}
 
 int main(int argc, char const *argv[]) {
   int i,num;
@@ -55,6 +75,7 @@ int main(int argc, char const *argv[]) {
     scanf("%d",&num);
     exibeTela(num-1);
     printf("A media do aluno e: %.2f \n", media(num-1));
+    situacao(num-1);
 
   } while(num);
 
