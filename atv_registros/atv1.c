@@ -1,34 +1,43 @@
 # include <stdio.h>
 # include <string.h>
+#define MAX 3
+
 typedef struct{
   char nome[50];
-  char telefone[10];
-  char celular[11];
+  char telefone[15];
+  char celular[15];
   char endereco[50];
-  int aniver;
+  char aniver[10];
 } agenda;
 
+agenda pteste[MAX];
 
+void leitura(int i){
+  printf("CONTATO %d de 3\n",i+1);
+  printf("Digite o nome:");
+  gets(pteste[i].nome);
+  printf("Digite o telefone:");
+  gets(pteste[i].telefone);
+  printf("Digite o celular:");
+  gets(pteste[i].celular);
+  printf("Digite o endereco:");
+  gets(pteste[i].endereco);
+  printf("Digite o aniversario: ddMMyyyy\n");
+  gets(pteste[i].aniver);
+}
+
+void exibeTela(int i){
+    printf("%s\n %s\n %s\n %s\n %s\n", pteste[i].nome,pteste[i].telefone,pteste[i].celular,pteste[i].endereco,pteste[i].aniver);
+}
 
 int main(int argc, char const *argv[]) {
-// declaracao variaveis
-  //const contador = 2; // define o limite maximo de cadastro
-  int i; // percorrer o indice
-  agenda p;
-// fim declaracao variaveis
-  printf("Digite o nome:");
-  gets(p.nome);
-  printf("Digite o telefone:");
-  gets(p.telefone);
-  printf("Digite o celular:");
-  gets(p.celular);
-  printf("Digite o endereco:");
-  gets(p.endereco);
-  printf("Digite o aniversario: ddMMyyyy\n");
-  scanf("%d\n",&p.aniver);getchar();
-  agenda pteste[3];
-  for (i=0; i < 1; i++) {
-    printf("%s %d %d %s %d\n",pteste[i].nome
-  }
-  return 0;
+  int i,num;
+  	for(i=0;i<MAX;i++) leitura(i);
+  	do{
+  		printf("\nDigite um numero de 1 a %d:",MAX);
+  		scanf("%d",&num);
+  		exibeTela( num-1);
+  	} while(num);
+
+return 0;
 }
