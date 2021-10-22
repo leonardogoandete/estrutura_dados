@@ -1,7 +1,7 @@
 # include <stdio.h>
 # include <string.h>
 
-#define MAX 2
+#define MAX 5
 
 typedef struct{
   char nome[50];
@@ -45,17 +45,6 @@ float media(int i){
   mediana = (vetor[i].nota1 + vetor[i].nota2 + vetor[i].nota3 + vetor[i].nota4)/4;
   return mediana;
 }
-/*
-bool situacao(int i){
-  float mediana = 0;
-  mediana = (vetor[i].nota1 + vetor[i].nota2 + vetor[i].nota3 + vetor[i].nota4)/4;
-  if (mediana >= 7) {
-    return true;
-  } else{
-    return false;
-  }
-}
-*/
 
 float situacao(int i){
   float mediana;
