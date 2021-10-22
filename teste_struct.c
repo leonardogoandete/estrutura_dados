@@ -8,9 +8,10 @@ typedef struct{
 int main() {
   int i;
   pessoa p;
+  printf("Digita nome:\n");
   gets(p.nome);
   p.idade = 10;
-  system("cls");
+  //system("cls");
   printf("%s - %d\n",p.nome,p.idade);
   pessoa fam[3];
   strcpy(fam[0].nome,"pai");

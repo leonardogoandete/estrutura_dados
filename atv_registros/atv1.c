@@ -10,7 +10,7 @@ typedef struct{
 
 
 
-int main() {
+int main(int argc, char const *argv[]) {
 // declaracao variaveis
   //const contador = 2; // define o limite maximo de cadastro
   int i; // percorrer o indice
@@ -28,15 +28,12 @@ int main() {
   printf("Digite o aniversario: ddMMyyyy\n");
   scanf("%d\n",&p.aniver);getchar();
   agenda pteste[3];
-  for (i=0; i < 3; i++) {
-    printf("%s %d %d %s %d\n",pteste[i].nome,
-                              pteste[i].telefone,
-                              pteste[i].celular,
-                              pteste[i].endereco,
-                              pteste[i].aniver);
+  for (i=0; i < 1; i++) {
+    printf("%s %d %d %s %d\n",pteste[i].nome
+  }
+  return 0;
 }
 
-}
   // array pessoa
 /*
   printf("%s - %d\n",p.nome,p.idade);
