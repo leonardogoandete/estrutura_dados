@@ -1,8 +1,6 @@
 # include <stdio.h>
 # include <string.h>
-
 #define MAX 5
-
 typedef struct{
   char nome[50];
   int matricula,faltas;

@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-
+# include <stdio.h>
+# include <stdlib.h>
 #define MAX 5
-
 typedef struct{
 	char nome[150];
 	char emer_telefone[15];
@@ -14,10 +12,11 @@ aluno vet[MAX];
 
 void leitura(int i){
   printf("Aluno %d de 5\n", i+1);
-	printf("Digite o nome do aluno: ");
+	printf("Nome do aluno: ");
 	gets(vet[i].nome);
 	printf("Digite a idade do aluno: ");
-	scanf("%d",&vet[i].idade); getchar();
+	scanf("%d",&vet[i].idade);
+  getchar();
 	printf("Nome do Contato de emergencia: ");
 	gets(vet[i].emer_contato);
 	printf("Digite o Telefone do Contato: ");
