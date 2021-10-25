@@ -9,7 +9,6 @@ typedef struct{
   char endereco[50];
   char aniver[10];
 } agenda;
-
 agenda pteste[MAX];
 
 void leitura(int i){
