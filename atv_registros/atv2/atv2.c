@@ -35,7 +35,11 @@ int main(int argc, char *argv[]) {
 	do{
 		printf("\nDigite um numero de 1 a %d:",MAX);
 		scanf("%d",&num);
+    if (num > MAX) {
+      printf("Numero nao existente!");
+    } else{
 		imprime( num-1);
+  }
 	} while(num);
 	return 0;
 }

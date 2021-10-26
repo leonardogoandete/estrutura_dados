@@ -9,37 +9,35 @@ typedef struct{
   char endereco[50];
   char aniver[10];
 } agenda;
-agenda pteste[MAX];
 
-void leitura(int i){
-  printf("CONTATO %d de 3\n",i+1);
-  printf("Digite o nome:");
-  gets(pteste[i].nome);
-  printf("Digite o telefone:");
-  gets(pteste[i].telefone);
-  printf("Digite o celular:");
-  gets(pteste[i].celular);
-  printf("Digite o endereco:");
-  gets(pteste[i].endereco);
-  printf("Digite o aniversario: ddMMyyyy\n");
-  gets(pteste[i].aniver);
+void exibeTela(agenda a){
+    printf("%s\n %s\n %s\n %s\n %s\n", a.nome,a.telefone,a.celular,a.endereco,a.aniver);
 }
 
-void exibeTela(int i){
-    printf("%s\n %s\n %s\n %s\n %s\n", pteste[i].nome,pteste[i].telefone,pteste[i].celular,pteste[i].endereco,pteste[i].aniver);
+void leitura(agenda *a){
+  printf("Digite o nome:");
+  gets((*a).nome);
+  printf("Digite o telefone:");
+  gets((*a).telefone);
+  printf("Digite o celular:");
+  gets((*a).celular);
+  printf("Digite o endereco:");
+  gets((*a).endereco);
+  printf("Digite o aniversario: ddMMyyyy\n");
+  gets((*a).aniver);
 }
 
 int main(int argc, char const *argv[]) {
   int i,num;
-  	for(i=0;i<MAX;i++) leitura(i);
+  agenda pteste[MAX];
+  	for(i=0;i<MAX;i++) leitura(&pteste[i]);
   	do{
   		printf("\nDigite um numero de 1 a %d:",MAX);
   		scanf("%d",&num);
       if (num > MAX) {
         printf("Numero nao existente!");
-        break;
       } else{
-  		exibeTela( num-1);
+  		exibeTela( pteste[num-1]);
     }
   	} while(num);
 

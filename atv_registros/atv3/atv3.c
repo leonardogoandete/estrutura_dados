@@ -60,9 +60,13 @@ int main(int argc, char const *argv[]) {
   do{
     printf("\nDigite um numero de 1 a %d:",MAX);
     scanf("%d",&num);
+    if (num > MAX) {
+      printf("Numero nao existente!");
+    } else{
     exibeTela(num-1);
     printf("A media do aluno e: %.2f \n", media(num-1));
     situacao(num-1);
+  }
 
   } while(num);
 
