@@ -6,20 +6,17 @@
 
 struct Pessoa{
     char* nome;
-    int idade;
     char telefone[17];
+    char celular[17];
     char* endereco;
-    char* cidade;
-    char estado[2];
+    char aniversario;
 }pessoa[MAX];
 
 void exibirMenu(){
     printf("\n\tSelecione umas das opçoes a seguir:\n");
     printf("\t01 - Inserir contato\n"
            "\t02 - Listar contatos\n"
-           "\t03 - Pesquisar contato\n"
-           "\t04 - Alterar contato\n"
-           "\t99 - Sair\n\n");
+           "\t03 - Sair\n");
 }
 
 char* alocarMemoria(int tamanho){
@@ -56,17 +53,6 @@ void cadastrarContato(int registro){
     //Alocação e cópia de dados
     pessoa[registro].endereco = alocarMemoria(strlen(dados));
     strcpy(pessoa[registro].endereco, dados);
-
-    printf("\t\tCidade: ");
-    scanf("%[^\n]s", dados);
-    setbuf(stdin, NULL);
-    //Alocação e cópia de dados
-    pessoa[registro].cidade = alocarMemoria(strlen(dados));
-    strcpy(pessoa[registro].cidade, dados);
-
-    printf("\t\tEstado: ");
-    scanf("%[^\n]s", pessoa[registro].estado);
-    setbuf(stdin, NULL);
 }
 
 void listarContatos(int qtdeContatos){
@@ -101,65 +87,7 @@ int pesquisarContato(int qtdeContatos, char* nomeBuscado){
     return -1;
 }
 
-void atualizarContato(int indice){
-    char* nome;
-    int idade;
-    char fone[16];
-    char* endereco;
-    char* cidade;
-    char uf[2];
 
-    char dados[MAX];
-    printf("\n\t\tNome: ");
-    scanf("%[^\n]s", dados);
-    setbuf(stdin, NULL);
-    //Alocação e cópia de dados
-    nome = alocarMemoria(strlen(dados));
-    strcpy(nome, dados);
-
-    printf("\t\tIdade: ");
-    scanf("%d", &idade);
-    setbuf(stdin, NULL);
-
-    printf("\t\tTelefone: ");
-    scanf("%[^\n]s", fone);
-    setbuf(stdin, NULL);
-
-    printf("\t\tEndereco: ");
-    scanf("%[^\n]s", dados);
-    setbuf(stdin, NULL);
-    //Alocação e cópia de dados
-    endereco = alocarMemoria(strlen(dados));
-    strcpy(endereco, dados);
-
-    printf("\t\tCidade: ");
-    scanf("%[^\n]s", dados);
-    setbuf(stdin, NULL);
-    //Alocação e cópia de dados
-    cidade = alocarMemoria(strlen(dados));
-    strcpy(cidade, dados);
-
-    printf("\t\tEstado: ");
-    scanf("%[^\n]s", uf);
-    setbuf(stdin, NULL);
-
-    pessoa[indice].nome = nome;
-    pessoa[indice].idade = idade;
-    strcpy(pessoa[indice].telefone, fone);
-    pessoa[indice].endereco = endereco;
-    pessoa[indice].cidade = cidade;
-    strcpy(pessoa[indice].estado, uf);
-}
-
-int leitor(){
-    int opcao;
-
-    printf("\n\tOpcao escolhida: ");
-    scanf("%d", &opcao);
-    setbuf(stdin, NULL);
-
-    return opcao;
-}
 
 int main(){
     char nome[MAX];
@@ -169,7 +97,9 @@ int main(){
 
     do{
         exibirMenu();
-        opcaoEscolhida = leitor();
+        printf("\n\tOpcao escolhida: ");
+        scanf("%d", &opcaoEscolhida);
+        setbuf(stdin, NULL);
 
         switch(opcaoEscolhida){
             case 1:
@@ -178,33 +108,23 @@ int main(){
             case 2:
                 listarContatos(numeroRegistro);
                 break;
-            case 3:
-                printf("\n\tNome: ");
-                scanf("%[^\n]s", nome);
-                indice = pesquisarContato(numeroRegistro, nome);
+            //case 3:
+                //printf("\n\tNome: ");
+                //scanf("%[^\n]s", nome);
+                //indice = pesquisarContato(numeroRegistro, nome);
 
-                if(indice >= 0 && indice <= 99)
-                    exibirContato(indice);
-                else
-                    printf("\n\tContato nao cadastrado!");
-                break;
-            case 4:
-                printf("\n\tContato numero [1 - 99]: ");
-                scanf("%d", &indice);
-                indice -= 1;
-                if(indice >= 0 && indice <= 99)
-                    atualizarContato(indice);
-                else
-                    printf("\n\tContato invalido!");
-                break;
-            case 99:
+              //  if(indice >= 0 && indice <= 99)
+                //    exibirContato(indice);
+              //  else
+              //      printf("\n\tContato nao cadastrado!");
+              //  break;
+            case 3:
                 printf("\n\tSaindo...");
                 break;
             default:
                 printf("Opção invalida!");
                 exibirMenu();
-                opcaoEscolhida = leitor();
         }
 
-    }while(opcaoEscolhida != 99);
+    }while(opcaoEscolhida != 3);
 }
