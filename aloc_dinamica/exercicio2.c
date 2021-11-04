@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #define MAX 5
 typedef struct{
-	char nome[150];char telefone[15];int idade;char contato[150];
+	char nome[150];
+	char telefone[15];
+	int idade;
+	char contato[150];
 } aluno;
 
 void leitura(aluno *a){

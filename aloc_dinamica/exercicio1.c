@@ -8,7 +8,8 @@ char telefone[15];
 int main(int argc, char *argv[]){
   contato *teste;
   teste = (contato*)malloc(sizeof(contato));
-  //printf("%d",teste);
+  sizeof(contato);
+  printf("%d",teste); // retorna o ponteiro da memoria
   if(teste != 0){ // verifico se a memoria alocada é diferente de 0, se verdadeiro foi alocado memoria.
   gets((*teste).nome);
   strcpy((*teste).telefone, "1234567");
