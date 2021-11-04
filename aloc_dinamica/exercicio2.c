@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #define MAX 5
 typedef struct{
-	char nome[150];
-	char telefone[15];
-	int idade;
-	char contato[150];
+	char nome[150]; //1 byte
+	char telefone[15]; //1 byte
+	int idade; // 2 bytes
+	char contato[150]; //1 byte
 } aluno;
 
 void leitura(aluno *a){
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 	aluno* alunos[MAX];
 	int i,num;
 
-	printf("Tamanho do vetor aluno: %d bytes\n",sizeof(aluno*)); // verifica o tamanho em bytes o vetor Aluno ocupa.
+	printf("Tamanho do vetor aluno: %d bytes\n",sizeof(aluno)); // verifica o tamanho em bytes o vetor Aluno ocupa.
 	printf("Tamanho da variavel alunos[] em %d bytes\n",sizeof(alunos));
 
 	for(i=0;i<MAX;i++)alunos[i]=0;
