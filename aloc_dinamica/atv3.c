@@ -10,7 +10,7 @@ struct Pessoa{
     char celular[17];
     char* endereco;
     char aniversario;
-}pessoa[MAX];
+} pessoa[MAX];
 
 void exibirMenu(){
     printf("\n\tSelecione umas das opçoes a seguir:\n");
@@ -39,10 +39,6 @@ void cadastrarContato(int registro){
     pessoa[registro].nome = alocarMemoria(strlen(dados));
     strcpy(pessoa[registro].nome, dados);
 
-    printf("\t\tIdade: ");
-    scanf("%d", &pessoa[registro].idade);
-    setbuf(stdin, NULL);
-
     printf("\t\tTelefone: ");
     scanf("%[^\n]s", pessoa[registro].telefone);
     setbuf(stdin, NULL);
@@ -56,38 +52,19 @@ void cadastrarContato(int registro){
 }
 
 void listarContatos(int qtdeContatos){
-    int i;
-    int contagem = 1;
+    int i,opcPosicao;
+    printf("\tDigite a posicao:\n");
+    scanf("%d", &opcPosicao);
     for(i = 0; i < qtdeContatos; i++){
-        printf("\n\tContato nº: %d\n", contagem++);
+      if(i == opcPosicao){
+        printf("\n\tContato nº: %d\n", opcPosicao);
         printf("\tNome: %s\n", pessoa[i].nome);
-        printf("\tIdade: %d\n", pessoa[i].idade);
         printf("\tTelefone: %s\n", pessoa[i].telefone);
         printf("\tEndereco: %s\n", pessoa[i].endereco);
-        printf("\tCidade: %s-%s\n", pessoa[i].cidade, pessoa[i].estado);
+      }
     }
     printf("\n\n");
 }
-
-void exibirContato(int indice){
-    printf("\n\tNome: %s\n", pessoa[indice].nome);
-    printf("\tIdade: %d\n", pessoa[indice].idade);
-    printf("\tTelefone: %s\n", pessoa[indice].telefone);
-    printf("\tEndereco: %s\n", pessoa[indice].endereco);
-    printf("\tCidade: %s-%s\n\n", pessoa[indice].cidade, pessoa[indice].estado);
-}
-
-int pesquisarContato(int qtdeContatos, char* nomeBuscado){
-    int i;
-
-    for(i = 0; i < qtdeContatos; i++){
-        if(strcmp(nomeBuscado, pessoa[i].nome) == 0)
-            return i;
-    }
-    return -1;
-}
-
-
 
 int main(){
     char nome[MAX];
@@ -108,16 +85,6 @@ int main(){
             case 2:
                 listarContatos(numeroRegistro);
                 break;
-            //case 3:
-                //printf("\n\tNome: ");
-                //scanf("%[^\n]s", nome);
-                //indice = pesquisarContato(numeroRegistro, nome);
-
-              //  if(indice >= 0 && indice <= 99)
-                //    exibirContato(indice);
-              //  else
-              //      printf("\n\tContato nao cadastrado!");
-              //  break;
             case 3:
                 printf("\n\tSaindo...");
                 break;

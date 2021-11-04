@@ -24,7 +24,8 @@ int main(int argc, char *argv[]) {
 	int i,num;
 
 	printf("Tamanho do vetor aluno: %d bytes\n",sizeof(aluno)); // verifica o tamanho em bytes o vetor Aluno ocupa.
-	printf("Tamanho da variavel alunos[] em %d bytes\n",sizeof(alunos));
+	printf("Tamanho da variavel alunos[] em %d bytes\n",sizeof(alunos)*5);
+	printf("Tamanho do programa %d em bytes\n",((sizeof(aluno))+ (sizeof(alunos)*5)+(sizeof(i))+(sizeof(num))));
 
 	for(i=0;i<MAX;i++)alunos[i]=0;
 
