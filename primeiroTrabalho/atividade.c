@@ -59,11 +59,12 @@ void retiraPosicao(){
   int num;
   printf("Digite a posicao:\n");
   scanf("%d", &num);
-  //criar teste posicao
   if(num >= 0 && num <= MAX){
     for (int posicaoRemove = 0; posicaoRemove < MAX; posicaoRemove++) {
       if (posicaoRemove == num) {
-          lista[posicaoRemove] = lista[num + 1] ;
+        for(int i = posicaoRemove; i <= MAX; i++){
+          lista[posicaoRemove] = lista[posicaoRemove + i];
+        }
       }
     }
   }else{
