@@ -26,7 +26,7 @@ int num;
   }else{
     printf("Posicao invalida");
   }
-}
+} // consultaPosicao()
 // questao B
 // ajustar pois esta continuando no loop
 void inserePosicao(){
@@ -54,6 +54,20 @@ void inserePosicao(){
   }
 }
 
+// Questao C
+void retiraPosicao(){
+  int num;
+  printf("Digite a posicao:\n");
+  scanf("%d", &num);
+  //criar teste posicao
+  for (int posicaoRemove = 0; posicaoRemove < MAX; posicaoRemove++) {
+    if (posicaoRemove == num) {
+        lista[posicaoRemove] = lista[num + 1] ;
+    }
+  }
+} //retiraPosicao()
+
+// Questao D
 void qtdeElementos(){
   int cont = 0;
   for (int i = 0; i < MAX; i++) {
@@ -62,7 +76,15 @@ void qtdeElementos(){
     }
   }
   printf("Total de elementos: %d", cont);
-}
+}// qtdeElementos
+// questao E
+void exibeTodos(){
+  for (int i = 0; i < MAX; i++) {
+    if (lista[i] != 0) {
+        printf("Posicao %d valor= %d\n",i, lista[i]);
+    }
+  }
+}// exibeTodos()
 
 int main(int argc, char *argv[]) {
 	char escolha;
@@ -73,9 +95,13 @@ int main(int argc, char *argv[]) {
 	//}
 
 
-  lista[0] = 333;
-  lista[1] = 222;
-  lista[2] = 966;
+  lista[0] = 999;
+  lista[1] = 888;
+  lista[2] = 777;
+  lista[3] = 666;
+  lista[4] = 555;
+  lista[5] = 444;
+
 
 	do{
   menu();
@@ -89,11 +115,13 @@ int main(int argc, char *argv[]) {
         inserePosicao();
     		break;
     	case 'c':
+        retiraPosicao();
     		break;
     	case 'd':
         qtdeElementos();
     		break;
     	case 'e':
+      exibeTodos();
     		break;
       case 'f':
         system("cls");
