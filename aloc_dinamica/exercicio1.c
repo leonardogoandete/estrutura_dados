@@ -9,7 +9,8 @@ int main(int argc, char *argv[]){
   contato *teste;
   teste = (contato*)malloc(sizeof(contato));
   printf("Tamanho da struct %d\n",sizeof(contato));
-  printf("Endereco da memoria: %d\n",teste); // retorna o ponteiro da memoria
+  printf("Tamanho da struct %d\n",sizeof(*teste));
+  printf("Endereco da memoria: %d\n",malloc(sizeof(*teste))); // retorna o ponteiro da memoria
   if(teste != 0 && teste != NULL){ // verifico se a memoria alocada é diferente de 0, se verdadeiro foi alocado memoria.
   gets((*teste).nome);
   strcpy((*teste).telefone, "1234567");

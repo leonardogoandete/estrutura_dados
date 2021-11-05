@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #define MAX 20 // define o tamanho do vetor
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 int lista[MAX]; //declaracao vetor
@@ -12,19 +11,20 @@ void menu() {
 	printf("\nc - Retirar elemento da lista");
 	printf("\nd - Consultar quantidade de elementos da lista");
 	printf("\ne - Exibir itens da lista");
-  printf("\nf - Exibir itens da lista\n");
+  printf("\nf - Sair\n");
   printf("\nDigite a opcao desejada: ");
 } // menu do programa
 // questao A
 void consultaPosicao(){
-  int valor, i,num;
+  int num;
   printf("Digite a posicao:\n");
   scanf("%d", &num);
-  for (i = 0; i <= num; i++) {
-    valor = lista[i];
+  if(num >= 0 && num <= MAX){
+    printf("Teste consultaPosicao\n");
+    printf("%d\n",lista[num-1]);
+  }else{
+    printf("Posicao invalida");
   }
-  printf("Teste consultaPosicao\n");
-  printf("%d\n",valor);
 }
 // questao B
 // ajustar pois esta continuando no loop
@@ -32,21 +32,25 @@ void inserePosicao(){
   int valor, i,num;
   printf("Digite a posicao:\n");
   scanf("%d", &num);
+  if(num >= 0 && num <= MAX){
   printf("Digite o valor:\n");
   scanf("%d", &valor);
-for (i = 0; i <= num; i++) {
-  if (lista[i] > 0) {
-    printf("%d local utilizado\n", i);
-    num++;
-  } else if(lista[i] == 0){
-      lista[i] = valor;
+    for (i = 0; i <= num; i++) {
+      if (lista[i] > 0) {
+        printf("%d local utilizado\n", i);
+        num++;
+      } else if(lista[i] == 0){
+        lista[i] = valor;
+      }
     }
+  }else {
+    printf("Posicao invalida");
   }
 }
 
 int main(int argc, char *argv[]) {
 	char escolha;
-  lista[2] = 33;
+  lista[2] = 33;// utilizado para teste na consulta
 
 	do{
   menu();
