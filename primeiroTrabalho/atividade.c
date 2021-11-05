@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #define MAX 20 // define o tamanho do vetor
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 int lista[MAX]; //declaracao vetor
@@ -16,12 +17,12 @@ void menu() {
 } // menu do programa
 // questao A
 void consultaPosicao(){
-  int num;
+int num;
   printf("Digite a posicao:\n");
   scanf("%d", &num);
   if(num >= 0 && num <= MAX){
     printf("Teste consultaPosicao\n");
-    printf("%d\n",lista[num-1]);
+    printf("%d\n",lista[num]);
   }else{
     printf("Posicao invalida");
   }
@@ -29,28 +30,50 @@ void consultaPosicao(){
 // questao B
 // ajustar pois esta continuando no loop
 void inserePosicao(){
-  int valor, i,num;
+  int contador, j = 0; //criação de um contador pro for e o J vai soma os espaços vazios que ainda não foram preenchidos
+  for(contador = 0; contador<MAX; contador++){
+  	  if(lista[j] != 0){  //CONTADOR PARA VERIFICAR SE ESTÁ CHEIO
+  	  	++j;
+		}
+  }
+  //printf("%d", j);
+
+  if(j == MAX ){//VETOR CHEIO
+  	printf("\nVetor cheio, excluir uma posição antes de continuar");
+  }else{//continua o programa e pede o valor e posição pra serem inseridos
+  	  int valor, i,num;
   printf("Digite a posicao:\n");
   scanf("%d", &num);
-  if(num >= 0 && num <= MAX){
-  printf("Digite o valor:\n");
-  scanf("%d", &valor);
-    for (i = 0; i <= num; i++) {
-      if (lista[i] > 0) {
-        printf("%d local utilizado\n", i);
-        num++;
-      } else if(lista[i] == 0){
-        lista[i] = valor;
-      }
+    if(num >= 0 && num <= MAX){
+      printf("Digite o valor:\n");
+      scanf("%d", &valor);
+    }else{
+      printf("Posicao invalida");
     }
-  }else {
-    printf("Posicao invalida");
   }
+}
+
+void qtdeElementos(){
+  int cont = 0;
+  for (int i = 0; i < MAX; i++) {
+    if (lista[i] != 0) {
+      cont++;
+    }
+  }
+  printf("Total de elementos: %d", cont);
 }
 
 int main(int argc, char *argv[]) {
 	char escolha;
-  lista[2] = 33;// utilizado para teste na consulta
+	int i;
+    lista[MAX];
+    //for(i = 0; i < MAX; i++){//ESSE FOR JOGARÁ ESPAÇO (NOSSO VALOR NULO) EM CADA POSIÇÃO DO VETOR PARA FAZER A VALIDAÇ O NA FUNÇÃO
+    	//lista[i] = ' ';
+	//}
+
+	lista[14] = 2;
+  lista[0] = 333;
+  lista[2] = 96;
 
 	do{
   menu();
@@ -58,21 +81,17 @@ int main(int argc, char *argv[]) {
 
     switch(escolha){
     	case 'a':
-    		printf("\nTeste1\n");
         consultaPosicao();
     		break;
     	case 'b':
-    		printf("\nTeste2\n");
         inserePosicao();
     		break;
     	case 'c':
-    		printf("\nTeste3\n");
     		break;
     	case 'd':
-    		printf("\nTeste4\n");
+        qtdeElementos();
     		break;
     	case 'e':
-    		printf("\nTeste5\n");
     		break;
       case 'f':
         system("cls");
