@@ -111,7 +111,7 @@ int main(int argc, char *argv[]) {
 
   lista[0] = 999;
   lista[1] = 888;
-  lista[2] = 777;
+  lista[2] = NULL;
   lista[3] = 666;
   lista[4] = 555;
   lista[5] = 444;
@@ -144,8 +144,6 @@ int main(int argc, char *argv[]) {
     	default:
     		printf("\nErro");
 	}
-
 } while(escolha != 'f'); //condições funcionaram por causa do ==
-
 	return 0;
 }
