@@ -126,7 +126,7 @@ int main(int argc, char *argv[]) {
         qtdeElementos();
     		break;
     	case 'e':
-      exibeTodos();
+        exibeTodos();
     		break;
       case 'f':
         system("cls");
