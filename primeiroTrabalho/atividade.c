@@ -47,7 +47,16 @@ void inserePosicao(){
     if(num >= 0 && num <= MAX){
       printf("Digite o valor:\n");
       scanf("%d", &valor);
-      lista[num] = valor;
+        if (lista[num] != 0) { // testa se tem 0 na posicao
+          for (i = 0; i < MAX; i++) { // faz o laço percorrer ate achar a posicao == 0
+            if (lista[i] == 0) { // quando for == 0 atribui na lista
+              lista[i] = valor;
+              break;
+            }
+          }
+      }else {
+          lista[num] = valor; // se for igual a 0 ele atribui direto
+      }
     }else{
       printf("Posicao invalida");
     }
