@@ -32,7 +32,7 @@ int num;
 void inserePosicao(){
   int contador, j = 0; //criação de um contador pro for e o J vai soma os espaços vazios que ainda não foram preenchidos
   for(contador = 0; contador<MAX; contador++){
-  	  if(lista[j] != 0){  //CONTADOR PARA VERIFICAR SE ESTÁ CHEIO
+  	  if(lista[j] == 0){  //CONTADOR PARA VERIFICAR SE ESTÁ CHEIO
   	  	++j;
 		}
   }
@@ -47,6 +47,7 @@ void inserePosicao(){
     if(num >= 0 && num <= MAX){
       printf("Digite o valor:\n");
       scanf("%d", &valor);
+      lista[num] = valor;
     }else{
       printf("Posicao invalida");
     }
@@ -71,9 +72,10 @@ int main(int argc, char *argv[]) {
     	//lista[i] = ' ';
 	//}
 
-	lista[14] = 2;
+
   lista[0] = 333;
-  lista[2] = 96;
+  lista[1] = 222;
+  lista[2] = 966;
 
 	do{
   menu();
