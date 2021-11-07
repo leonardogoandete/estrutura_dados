@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX 20 // define o tamanho do vetor
+#define MAX 7 // define o tamanho do vetor
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 int lista[MAX]; //declaracao vetor
 void menu() {
@@ -33,12 +33,12 @@ void inserePosicao(){
   int contador, j = 0; //criação de um contador pro for e o J vai soma os espaços vazios que ainda não foram preenchidos
   for(contador = 0; contador<MAX; contador++){
   	  if(lista[j] == 0){  //CONTADOR PARA VERIFICAR SE ESTÁ CHEIO
-  	  	++j;
+  	  	j++;
 		}
   }
-  //printf("%d", j);
+  printf("%d", j);
 
-  if(j == MAX ){//VETOR CHEIO
+  if(contaPosicao == MAX ){//VETOR CHEIO
   	printf("\nVetor cheio, excluir uma posição antes de continuar");
   }else{//continua o programa e pede o valor e posição pra serem inseridos
   	  int valor, i,num;
@@ -102,7 +102,7 @@ void exibeTodos(){
 
 int main(int argc, char *argv[]) {
 	char escolha;
-	int i;
+	int i, contaPosicao = 0;
     lista[MAX];
     //for(i = 0; i < MAX; i++){//ESSE FOR JOGARÁ ESPAÇO (NOSSO VALOR NULO) EM CADA POSIÇÃO DO VETOR PARA FAZER A VALIDAÇ O NA FUNÇÃO
     	//lista[i] = ' ';
@@ -144,6 +144,8 @@ int main(int argc, char *argv[]) {
     	default:
     		printf("\nErro");
 	}
+
 } while(escolha != 'f'); //condições funcionaram por causa do ==
+
 	return 0;
 }
