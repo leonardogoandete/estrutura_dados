@@ -39,7 +39,7 @@ void inserePosicao(){
                 printf("Digite o valor:\n");
                 scanf("%d", &valor);
                       if(posicao <= contaposicao){
-                      	for(i = MAX - 1 ; i > posicao ; i--) lista[i + 1] = lista[i];
+                      	for(i = MAX - 1 ; i >= posicao ; i--) lista[i + 1] = lista[i];
                       	lista[posicao] = valor;
 					    }else{
 					      	if(posicao > contaposicao){
