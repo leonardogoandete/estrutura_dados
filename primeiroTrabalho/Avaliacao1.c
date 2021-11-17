@@ -15,7 +15,7 @@ void menu() {
 	printf("\nd - Consultar quantidade de elementos da lista");
 	printf("\ne - Exibir itens da lista");
     printf("\nf - Sair\n");
-  
+
 } // menu do programa
 // questao A
 void consultaPosicao(){
@@ -30,11 +30,10 @@ void consultaPosicao(){
     printf("\nPosicao invalida\n");
   }
     }else{
-    	printf("\nNão existem posições a serem consultadas\n");
+    	printf("\nNao existem posicoes a serem consultadas\n");
 	}
 } // consultaPosicao()
 // questao B
-// ajustar pois esta continuando no loop
 void inserePosicao(){
 	int posicao, valor, i;
     if(contaposicao != 20){
@@ -43,50 +42,54 @@ void inserePosicao(){
              if(posicao > 0 && posicao <= MAX){
                 printf("\nDigite o valor:");
                 scanf("%d", &valor);
+                if (valor != 0) {
                       if(posicao <= contaposicao){
                       	for(i = contaposicao ; i >= posicao-1 ; i--) lista[i] = lista[i - 1];
                       	lista[posicao-1] = valor;
-                      	printf("\nValor tomou posição %d\n", posicao);
-						contaposicao++;                   	
-					    }else{
-					      	if(posicao > contaposicao){
-					  		   lista[contaposicao] = valor;
-							   printf("\nValor tomou posição %d\n", contaposicao+1); 
-							   contaposicao++;  
-						    }
-					    }   
-                     }else{
-                    	printf("\nPosição inválida\n");
-		          }
-	}else{
+                      	printf("\nValor tomou posicao %d\n", posicao);
+						            contaposicao++;
+					            }else{
+					      	       if(posicao > contaposicao){
+					  		         lista[contaposicao] = valor;
+							           printf("\nValor tomou posicao %d\n", contaposicao+1);
+							           contaposicao++;
+						             }
+					           }
+                }else{
+                  printf("\nValor digitado invalido\n");
+                }
+            }else{
+            	printf("\nPosicao invalida\n");
+		        }
+	 }else{
 		printf("\nLista cheia, excluir um item antes de inserir\n");
-	}
-	
+	 }
+
 }
 
 // Questao C
 void retiraPosicao(){
     int posicao, i;
     if(contaposicao != 0){
-       printf("\nDigite a posição: ");
+       printf("\nDigite a posicao: ");
        scanf("%d", &posicao);
-       
-             if(posicao > 0 && posicao <= MAX){            	
+
+             if(posicao > 0 && posicao <= MAX){
              	if(posicao <= contaposicao){
              		for(i = posicao - 1 ; i <= contaposicao ; i++) lista[i] = lista[i+1];
              		contaposicao--;
 				 }else{
 				 	if(posicao > contaposicao){
-				 		printf("\nNão existe posicão a ser removida\n");
+				 		printf("\nNao existe posicao a ser removida\n");
 					 }
-				 } 	
+				 }
 			 }else{
-			 	printf("\nPosição inválida\n");
-			 }	
+			 	printf("\nPosicao invalida\n");
+			 }
 	}else{
 		printf("\nLista vazia, inserir um item antes de excluir\n");
 	}
-  
+
 } //retiraPosicao()
 
 // Questao D
@@ -107,14 +110,14 @@ void qtdeElementos(){
 // questao E
 void exibeTodos(){
   if(contaposicao != 0){
-  
+
   for (int i = 0; i < contaposicao; i++) {
     if (lista[i] != 0) {
         printf("Posicao %d valor= %d\n",i+1, lista[i]);
     }
   }
   }else{
-  	printf("\nNão há itens a serem listados\n");
+  	printf("\nNao ha itens a serem listados\n");
   }
 }// exibeTodos()
 
@@ -122,9 +125,9 @@ int main(int argc, char *argv[]) {
 	char escolha;
 	int i;
     lista[MAX];
-    
+
     menu();
-    
+
 	do{
 	printf("\nDigite a opcao desejada: ");
     scanf("%s", &escolha); //Usei scanf, por que o getchar deu erro, multiplicou duas vezes os printsf de cima
@@ -155,17 +158,10 @@ int main(int argc, char *argv[]) {
         printf("Saindo...");
         break;
     	default:
-    		printf("\nOpção inválida\n");
+    		printf("\nOpcao invalida\n");
 	}
 
-} while(escolha != 'f'); //condições funcionaram por causa do ==
+} while(escolha != 'f'); //condicoes funcionaram por causa do ==
 
 	return 0;
 }
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-// Ultima atualizacao Leonardo Goandete 17/11/2021 - 01:00
+// Ultima atualizacao Leonardo Goandete 17/11/2021 - 08:26
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -52,21 +52,25 @@ void inserePosicao(){
              if(posicao > 0 && posicao <= MAX){
                 printf("\nDigite o valor:");
                 scanf("%d", &valor);
-                      if(posicao <= contaposicao){
+                if(valor != 0){
+                    if(posicao <= contaposicao){
                       	for(i = contaposicao ; i >= posicao-1 ; i--) lista[i] = lista[i - 1];
                       	lista[posicao-1] = valor;
                       	printf("\nValor tomou posicao %d\n", posicao);
-						contaposicao++;
-					    }else{
-					      	if(posicao > contaposicao){
-					  		   lista[contaposicao] = valor;
-							   printf("\nValor tomou posicao %d\n", contaposicao+1);
-							   contaposicao++;
-						    }
-					    }
-                     }else{
+						            contaposicao++;
+					          }else{
+					      	      if(posicao > contaposicao){
+					  		         lista[contaposicao] = valor;
+							           printf("\nValor tomou posicao %d\n", contaposicao+1);
+							           contaposicao++;
+						            }
+					          }
+                  }else{
+                    printf("\nValor digitado invalido\n");
+                  }
+            }else{
                     	printf("\nPosicao invalida\n");
-		          }
+		        }
 	}else{
 		printf("\nLista cheia, excluir um item antes de inserir\n");
 	}
