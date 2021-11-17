@@ -43,7 +43,6 @@ void consultaPosicao(){
   limpaTela(); // adicionei
 } // consultaPosicao()
 // questao B
-// ajustar pois esta continuando no loop
 void inserePosicao(){
 	int posicao, valor, i;
     if(contaposicao != 20){
