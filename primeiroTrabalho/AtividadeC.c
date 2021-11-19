@@ -87,7 +87,7 @@ void retiraPosicao(){
              	if(posicao <= contaposicao){
              		for(i = posicao - 1 ; i <= contaposicao ; i++) lista[i] = lista[i+1];
              		contaposicao--;
-                printf("\nElemento removido, e atualizado lista\n");
+                printf("\nElemento da posicao %d removido, atualizado lista\n", posicao);
 				 }else{
 				 	if(posicao > contaposicao){
 				 		printf("\nNao existe posicao a ser removida\n");
@@ -105,11 +105,9 @@ void retiraPosicao(){
 
 // Questao D
 void qtdeElementos(){
-  int i;
   if(contaposicao != 0){
-  for (i = 0; i < contaposicao; i++) { }
   system("cls");
-  printf("\nTotal de elementos: %d\n\n", i);
+  printf("\nTotal de elementos: %d\n\n", contaposicao);
   printf("\nPressione <Enter> para continuar!\n");
 }else{
   printf("\nLista vazia\n");
@@ -124,8 +122,8 @@ void exibeTodos(){
   printf("==Lista de Itens==\n");
   for (int i = 0; i < contaposicao; i++) {
         printf("Posicao %d valor= %d\n",i+1, lista[i]);
-        printf("\nPressione <Enter> para continuar!\n");
     }
+    printf("\nPressione <Enter> para continuar!\n");
   }else{
   printf("\nNao ha itens a serem exibidos\n");
   printf("\nPressione <Enter> para continuar!\n");

@@ -95,10 +95,8 @@ void retiraPosicao(){
 // Questao C
 
 void qtdeElementos(){
-  int i;
   if(contaposicao != 0){//Verificacao se lista esta vazia para listar elementos
-  for (i = 0; i < contaposicao; i++) { }
-  printf("\nTotal de elementos: %d\n", i);
+  printf("\nTotal de elementos: %d\n", contaposicao);
   }else{
   printf("\nLista vazia\n");
 }
