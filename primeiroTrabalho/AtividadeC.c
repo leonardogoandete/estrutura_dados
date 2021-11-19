@@ -4,10 +4,10 @@
 #include <string.h>
 
 #define MAX 20 // define o tamanho do vetor
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
 int lista[MAX]; //declaracao vetor
 int contaposicao = 0;
-int teste = 0;
+
 void menu() {
   printf("\nEscolha uma das opcoes abaixo para navegar\n");
 	printf("\na - Consultar posicao da lista");
@@ -15,8 +15,7 @@ void menu() {
 	printf("\nc - Retirar elemento da lista");
 	printf("\nd - Consultar quantidade de elementos da lista");
 	printf("\ne - Exibir itens da lista");
-    printf("\nf - Sair\n");
-
+  printf("\nf - Sair\n");
 } // menu do programa
 
 void limpaTela(){
@@ -26,20 +25,26 @@ void limpaTela(){
 }
 // questao A
 void consultaPosicao(){
+  int posicao;
   if(contaposicao != 0){
-  int num;
   printf("\nDigite a posicao:\n");
-  scanf("%d", &num);
-  if(num >= 0 && num <= MAX){
+  scanf("%d", &posicao);
+  if(posicao > 0 && posicao <= MAX){
+    if(posicao <= contaposicao){
     system("cls");
-    printf("Posicao consultada: %d\nValor: %d\n",num,lista[num-1]);
+    printf("Posicao consultada: %d\nValor: %d\n",posicao,lista[posicao-1]);
     printf("\nPressione <Enter> para continuar!\n");
   }else{
-    printf("\nPosicao invalida\n");
+    if(posicao > contaposicao){
+      printf("\nNao existe elemento na posicao a ser consultada\n");
+     }
   }
     }else{
-    	printf("\nNao existem posicoes a serem consultadas\n");
-	}
+    	printf("\nPosicao invalida\n");
+    }
+  }else{
+      printf("\nLista vazia, inserir um item antes de excluir\n");
+    }
   limpaTela(); // adicionei
 } // consultaPosicao()
 // questao B
@@ -51,7 +56,6 @@ void inserePosicao(){
              if(posicao > 0 && posicao <= MAX){
                 printf("\nDigite o valor:");
                 scanf("%d", &valor);
-                if(valor != 0){
                     if(posicao <= contaposicao){
                       	for(i = contaposicao ; i >= posicao-1 ; i--) lista[i] = lista[i - 1];
                       	lista[posicao-1] = valor;
@@ -65,14 +69,11 @@ void inserePosicao(){
 						            }
 					          }
                   }else{
-                    printf("\nValor digitado invalido\n");
+                    printf("\nPosicao digitada invalida\n");
                   }
             }else{
-                    	printf("\nPosicao invalida\n");
+                  printf("\nLista cheia, excluir um item antes de inserir\n");
 		        }
-	}else{
-		printf("\nLista cheia, excluir um item antes de inserir\n");
-	}
 limpaTela();
 }
 
@@ -86,7 +87,7 @@ void retiraPosicao(){
              	if(posicao <= contaposicao){
              		for(i = posicao - 1 ; i <= contaposicao ; i++) lista[i] = lista[i+1];
              		contaposicao--;
-                printf("\nPosicao removida\n");
+                printf("\nElemento removido, e atualizado lista\n");
 				 }else{
 				 	if(posicao > contaposicao){
 				 		printf("\nNao existe posicao a ser removida\n");
@@ -104,16 +105,11 @@ void retiraPosicao(){
 
 // Questao D
 void qtdeElementos(){
+  int i;
   if(contaposicao != 0){
-
-  int cont = 0;
-  for (int i = 0; i < contaposicao; i++) {
-    if (lista[i] != 0) {
-      cont++;
-    }
-  }
+  for (i = 0; i < contaposicao; i++) { }
   system("cls");
-  printf("\nTotal de elementos: %d\n\n", cont);
+  printf("\nTotal de elementos: %d\n\n", i);
   printf("\nPressione <Enter> para continuar!\n");
 }else{
   printf("\nLista vazia\n");
@@ -122,27 +118,26 @@ void qtdeElementos(){
 }// qtdeElementos
 // questao E
 void exibeTodos(){
+  int i;
   if(contaposicao != 0){
   system("cls");
   printf("==Lista de Itens==\n");
-  for (int i = 0; i <= contaposicao; i++) {
-    if (lista[i] != 0) {
+  for (int i = 0; i < contaposicao; i++) {
         printf("Posicao %d valor= %d\n",i+1, lista[i]);
+        printf("\nPressione <Enter> para continuar!\n");
     }
-  }
-  printf("\nPressione <Enter> para continuar!\n");
   }else{
-  	printf("\nNao ha itens a serem listados\nPressione <Enter> para continuar!\n"); // alterei
-  }
-  limpaTela(); // adicionei
+  printf("\nNao ha itens a serem exibidos\n");
+  printf("\nPressione <Enter> para continuar!\n");
+}
+limpaTela(); // adicionei
 }// exibeTodos()
 
 int main(int argc, char *argv[]) {
 	char escolha;
-	int i;
-    lista[MAX];
+  lista[MAX];
 
-    menu();
+  menu();
 
 	do{
 	printf("\nDigite a opcao desejada: ");
