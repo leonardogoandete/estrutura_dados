@@ -125,8 +125,7 @@ int main(int argc, char *argv[]) {
 
 	do{
 	printf("\nDigite a opcao desejada: ");
-    scanf("%s", &escolha);
-
+  scanf("%s", &escolha);
     switch(tolower(escolha)){//Caso de escolha do menu
     	case 'a':
         consultaPosicao();
@@ -155,8 +154,6 @@ int main(int argc, char *argv[]) {
     	default:
     		printf("\nOpcao invalida\n");
 	}
-
 } while(escolha != 'f'); //Ira finalizar quando digitar F
-
 	return 0;
 }

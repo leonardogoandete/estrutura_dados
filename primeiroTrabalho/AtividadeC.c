@@ -174,6 +174,5 @@ int main(int argc, char *argv[]) {
 	}
 
 } while(escolha != 'f'); //condicoes funcionaram por causa do ==
-
 	return 0;
 }
