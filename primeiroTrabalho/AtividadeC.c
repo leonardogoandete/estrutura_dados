@@ -143,7 +143,7 @@ int main(int argc, char *argv[]) {
 	printf("\nDigite a opcao desejada: ");
     scanf("%s", &escolha); //Usei scanf, por que o getchar deu erro, multiplicou duas vezes os printsf de cima
 
-    switch(escolha){
+    switch(tolower(escolha)){
     	case 'a':
         consultaPosicao();
         printf("--------------------------------------------");

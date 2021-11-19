@@ -127,7 +127,7 @@ int main(int argc, char *argv[]) {
 	printf("\nDigite a opcao desejada: ");
     scanf("%s", &escolha);
 
-    switch(escolha){//Caso de escolha do menu
+    switch(tolower(escolha)){//Caso de escolha do menu
     	case 'a':
         consultaPosicao();
         printf("--------------------------------------------");
